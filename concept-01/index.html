@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CLC Properties - Concept 01</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f7f5f0;
+        --surface: #ffffff;
+        --ink: #161816;
+        --soft-ink: #4b514d;
+        --muted: #777d77;
+        --line: rgba(22, 24, 22, 0.14);
+        --pine: #26362f;
+        --moss: #607165;
+        --brass: #a9854c;
+        --mist: #e8ebe5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Manrope", sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background: rgba(247, 245, 240, 0.88);
+        border-bottom: 1px solid rgba(22, 24, 22, 0.1);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav {
+        width: min(1180px, calc(100% - 40px));
+        height: 78px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 26px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        min-width: 190px;
+      }
+
+      .brand img {
+        width: 46px;
+        height: 46px;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+      }
+
+      .brand span {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.19em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 27px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--soft-ink);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .login-link {
+        border: 1px solid rgba(38, 54, 47, 0.32);
+        padding: 12px 17px;
+        color: var(--pine);
+      }
+
+      .hero {
+        min-height: 92vh;
+        display: grid;
+        align-items: end;
+        position: relative;
+        padding-top: 78px;
+        overflow: hidden;
+        background: var(--ink);
+      }
+
+      .hero-image {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(10, 12, 10, 0.78) 0%, rgba(10, 12, 10, 0.5) 40%, rgba(10, 12, 10, 0.12) 78%),
+          linear-gradient(0deg, rgba(10, 12, 10, 0.75) 0%, rgba(10, 12, 10, 0) 45%);
+      }
+
+      .hero-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        padding: 0 0 48px;
+      }
+
+      .hero-copy {
+        max-width: 690px;
+        color: #fff;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-family: "Playfair Display", serif;
+        font-size: clamp(46px, 8vw, 98px);
+        font-weight: 600;
+        line-height: 0.96;
+      }
+
+      .hero p {
+        max-width: 590px;
+        margin: 24px 0 0;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 18px;
+        line-height: 1.65;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 22px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+      }
+
+      .button.primary {
+        background: #fff;
+        color: var(--ink);
+        border-color: #fff;
+      }
+
+      .button.secondary {
+        color: #fff;
+      }
+
+      .section {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 86px 0;
+      }
+
+      .intro {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 70px;
+        align-items: start;
+      }
+
+      .intro h2,
+      .section-title {
+        margin: 0;
+        font-family: "Playfair Display", serif;
+        font-size: clamp(34px, 5vw, 62px);
+        font-weight: 600;
+        line-height: 1.04;
+      }
+
+      .intro p,
+      .section-lede {
+        margin: 0;
+        color: var(--soft-ink);
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 38px;
+      }
+
+      .service-card {
+        min-height: 360px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        padding: 30px;
+        color: #fff;
+      }
+
+      .service-card img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 700ms ease;
+      }
+
+      .service-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, rgba(9, 12, 10, 0.82), rgba(9, 12, 10, 0.14));
+      }
+
+      .service-card:hover img {
+        transform: scale(1.04);
+      }
+
+      .service-content {
+        position: relative;
+        z-index: 1;
+        max-width: 430px;
+      }
+
+      .service-content h3 {
+        margin: 0 0 12px;
+        font-family: "Playfair Display", serif;
+        font-size: 34px;
+        font-weight: 600;
+      }
+
+      .service-content p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.65;
+      }
+
+      .access-band {
+        background: var(--pine);
+        color: #fff;
+      }
+
+      .access-wrap {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 64px 0;
+        display: grid;
+        grid-template-columns: 1fr 1.25fr;
+        gap: 58px;
+        align-items: center;
+      }
+
+      .access-wrap h2 {
+        margin: 0;
+        font-family: "Playfair Display", serif;
+        font-size: clamp(32px, 4.8vw, 56px);
+        line-height: 1.04;
+      }
+
+      .access-wrap p {
+        margin: 18px 0 0;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.72;
+      }
+
+      .access-links {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .access-link {
+        min-height: 132px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.055);
+      }
+
+      .access-link strong {
+        font-size: 15px;
+      }
+
+      .access-link span {
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .image-rail {
+        display: grid;
+        grid-template-columns: 1fr 1.35fr 0.8fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .image-rail img {
+        width: 100%;
+        height: 430px;
+        object-fit: cover;
+      }
+
+      .image-rail img:nth-child(2) {
+        height: 520px;
+        margin-top: -46px;
+      }
+
+      .closing {
+        padding: 84px 0 96px;
+        text-align: center;
+      }
+
+      .closing h2 {
+        width: min(850px, calc(100% - 40px));
+        margin: 0 auto;
+        font-family: "Playfair Display", serif;
+        font-size: clamp(36px, 6vw, 72px);
+        line-height: 1.03;
+      }
+
+      .closing a {
+        margin-top: 28px;
+        background: var(--pine);
+        color: #fff;
+        border-color: var(--pine);
+      }
+
+      @media (max-width: 920px) {
+        .nav {
+          height: 70px;
+        }
+
+        .nav-links a:not(.login-link) {
+          display: none;
+        }
+
+        .hero {
+          min-height: 86vh;
+          padding-top: 70px;
+        }
+
+        .intro,
+        .access-wrap {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .service-grid,
+        .access-links,
+        .image-rail {
+          grid-template-columns: 1fr;
+        }
+
+        .service-card {
+          min-height: 310px;
+        }
+
+        .image-rail img,
+        .image-rail img:nth-child(2) {
+          height: 300px;
+          margin-top: 0;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .nav {
+          width: calc(100% - 26px);
+        }
+
+        .brand span {
+          font-size: 12px;
+          letter-spacing: 0.13em;
+        }
+
+        .brand img {
+          width: 38px;
+          height: 38px;
+        }
+
+        .login-link {
+          padding: 10px 11px;
+          font-size: 11px;
+        }
+
+        .hero-inner,
+        .section,
+        .access-wrap {
+          width: calc(100% - 28px);
+        }
+
+        .hero p,
+        .intro p,
+        .section-lede {
+          font-size: 16px;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#">
+          <img src="../assets/logo-current-jpg.jpg" alt="CLC Properties logo" />
+          <span>CLC Properties</span>
+        </a>
+        <div class="nav-links">
+          <a href="#management">Property Management</a>
+          <a href="#homes">Custom Homes</a>
+          <a href="#contact">Contact</a>
+          <a class="login-link" href="#login">Resident / Owner Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="CLC Properties homepage concept">
+        <div class="hero-image">
+          <img src="../assets/property-photos/Finished project 2.png" alt="Finished custom home exterior" />
+        </div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <h1>Property management with a builder's eye for quality.</h1>
+            <p>CLC Properties supports owners, residents, and select custom home projects with a calm, professional approach rooted in care, detail, and long-term value.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#management">Explore Services</a>
+              <a class="button secondary" href="#login">Resident / Owner Login</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro">
+        <h2>A polished front door for a practical, hands-on real estate business.</h2>
+        <p>The public site should make CLC feel established, modern, and approachable while helping each visitor move quickly: residents can log in, owners can understand the management approach, and prospective clients can see the quality standard behind the company.</p>
+      </section>
+
+      <section class="section service-grid" aria-label="Core service areas">
+        <a class="service-card" id="management" href="#contact">
+          <img src="../assets/property-photos/cleaned up building.png" alt="Modern managed residential building" />
+          <div class="service-content">
+            <h3>Property Management</h3>
+            <p>A clear resident and owner experience, supported by simple online paths for payments, maintenance, applications, and communication.</p>
+          </div>
+        </a>
+        <a class="service-card" id="homes" href="#contact">
+          <img src="../assets/property-photos/Finished proejct 1.png" alt="Finished modern custom home exterior" />
+          <div class="service-content">
+            <h3>Custom Homes</h3>
+            <p>A selective build portfolio presented with the same attention to detail CLC brings to ownership, construction, and long-term care.</p>
+          </div>
+        </a>
+      </section>
+
+      <section class="access-band" id="login">
+        <div class="access-wrap">
+          <div>
+            <h2>Simple entry points, connected behind the scenes.</h2>
+            <p>The custom public site can set the tone, then hand residents and owners into the portal experience for the operational pieces.</p>
+          </div>
+          <div class="access-links">
+            <a class="access-link" href="#">
+              <strong>Resident Login</strong>
+              <span>Rent, maintenance, documents, and account access.</span>
+            </a>
+            <a class="access-link" href="#">
+              <strong>Owner Login</strong>
+              <span>Reporting, property updates, and portfolio access.</span>
+            </a>
+            <a class="access-link" href="#">
+              <strong>Apply Online</strong>
+              <span>Available rentals and application flow.</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">A visual standard that feels premium without feeling oversized.</h2>
+        <p class="section-lede" style="max-width: 680px; margin-top: 18px;">This direction uses large photography, quiet typography, and practical navigation to make CLC feel elevated while still grounded in real local property work.</p>
+      </section>
+
+      <section class="section image-rail" aria-label="Property imagery">
+        <img src="../assets/property-photos/07-completed-this-2-500-sq-ft-bungalow-in-just-under-five-months-in-kempt.jpg" alt="Completed custom bungalow exterior" />
+        <img src="../assets/property-photos/Finished project 2.png" alt="Finished custom home with landscaping" />
+        <img src="../assets/property-photos/09-hardie-vertical-siding-soffit-and-fascia-up-next-kemptville-constructi.jpg" alt="Construction detail with exterior siding" />
+      </section>
+
+      <section class="closing" id="contact">
+        <h2>Built to look beautiful, but designed to send people to the right place fast.</h2>
+        <a class="button" href="mailto:lorenzo@clcproperties.ca">Start The Conversation</a>
+      </section>
+    </main>
+  </body>
+</html>

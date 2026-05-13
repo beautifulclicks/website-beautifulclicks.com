@@ -11,8 +11,10 @@
       h1 { margin: 0 0 10px; font-size: clamp(30px, 4vw, 54px); letter-spacing: -0.02em; }
       .sub { margin: 0 0 28px; color: var(--muted); font-size: 18px; line-height: 1.5; }
       .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-      .panel { background: #fff; border: 1px solid var(--line); border-radius: 18px; min-height: 260px; padding: 20px; box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05); }
-      .hero { height: 150px; border-radius: 14px; background: linear-gradient(135deg, #e5e1d7, #f9f8f4); border: 1px solid var(--line); margin-bottom: 16px; }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 18px; min-height: 260px; padding: 20px; box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05); color: var(--ink); text-decoration: none; display: block; transition: transform 160ms ease, box-shadow 160ms ease; }
+      .panel:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(31, 35, 40, 0.08); }
+      .hero { height: 150px; border-radius: 14px; background: linear-gradient(135deg, #e5e1d7, #f9f8f4); border: 1px solid var(--line); margin-bottom: 16px; overflow: hidden; }
+      .hero img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
       .panel h2 { margin: 0 0 8px; font-size: 22px; }
       .panel p { margin: 0; color: var(--muted); line-height: 1.5; }
       @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
@@ -23,11 +25,11 @@
       <h1>Front-Facing Website</h1>
       <p class="sub">A few simple mockup directions to help Lorenzo react to style and feel.</p>
       <div class="grid">
-        <section class="panel">
-          <div class="hero"></div>
-          <h2>Direction 1</h2>
+        <a class="panel" href="concept-01/">
+          <div class="hero"><img src="assets/concept-01-desktop.png" alt="Concept 01 website screenshot"></div>
+          <h2>Direction 1 - Quiet Luxury</h2>
           <p>Soft, calm, and property-management first. Clear entry points and little noise.</p>
-        </section>
+        </a>
         <section class="panel">
           <div class="hero"></div>
           <h2>Direction 2</h2>
@@ -42,4 +44,3 @@
     </main>
   </body>
 </html>
-
