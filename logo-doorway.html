@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CLC Properties - Doorway Mark</title>
+    <style>
+      :root { color-scheme: light; --bg: #f5f2eb; --ink: #1f2328; --muted: #6b7280; --line: rgba(31, 35, 40, 0.1); }
+      html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+      main { max-width: 980px; margin: 0 auto; padding: 48px 24px 72px; }
+      h1 { margin: 0 0 10px; font-size: clamp(30px, 4vw, 54px); }
+      .sub { margin: 0 0 28px; color: var(--muted); font-size: 18px; line-height: 1.5; }
+      .hero { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 34px; box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05); }
+      .mark { display: grid; place-items: center; min-height: 320px; }
+      .mark img { width: min(68vw, 430px); height: auto; display: block; }
+      .sections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+      .panel h2 { margin: 0 0 10px; font-size: 20px; }
+      .panel p { color: var(--muted); line-height: 1.5; }
+      .back { display: inline-block; margin-bottom: 24px; color: var(--muted); text-decoration: none; font-weight: 700; }
+      @media (max-width: 860px) { .sections { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="logo.html">Back to logo concepts</a>
+      <h1>Doorway Mark</h1>
+      <p class="sub">A simple entry-frame direction that suggests access, service, and managed spaces.</p>
+
+      <section class="hero">
+        <div class="mark">
+          <img src="assets/logo-doorway.png" alt="CLC Properties doorway mark">
+        </div>
+
+        <div class="sections">
+          <div class="panel">
+            <h2>Why It Works</h2>
+            <p>It is very simple and could scale well across the website, social media, and signage.</p>
+          </div>
+          <div class="panel">
+            <h2>Brand Feel</h2>
+            <p>It feels accessible and service-oriented, with a softer personality than the heavier marks.</p>
+          </div>
+          <div class="panel">
+            <h2>Watch-Out</h2>
+            <p>It may need more CLC distinctiveness so it does not become too generic.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -20,6 +20,10 @@ This is the clean working repository for the BeautifulClicks public website.
 - `logo.html` - logo concept gallery
 - `logo-current.html` - current mark detail page
 - `logo-architecture.html` - architectural mark detail page
+- `logo-building.html` - building-shaped favorite concept
+- `logo-doorway.html` - doorway mark concept
+- `logo-wordmarks.html` - wordmark direction set
+- `thanks.html` - feedback form success page
 - `website.html` - front-facing website concepts
 - `deck.html` - live meeting talking points
 

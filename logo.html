@@ -17,13 +17,20 @@
       main { width: min(100vw, 1080px); padding: 64px 28px; }
       h1 { margin: 0 0 12px; font-size: clamp(32px, 5vw, 58px); text-align: center; }
       .sub { margin: 0 0 40px; color: var(--muted); font-size: 18px; line-height: 1.5; text-align: center; }
-      .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+      .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
       .tile { min-height: 330px; background: #fff; border: 1px solid var(--line); border-radius: 14px; display: grid; place-items: center; text-decoration: none; color: var(--ink); box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05); transition: transform 160ms ease, box-shadow 160ms ease; padding: 24px; }
       .tile:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(31, 35, 40, 0.08); }
-      .tile img { width: min(100%, 250px); height: auto; display: block; margin: 0 auto 18px; }
+      .tile img { width: min(100%, 230px); height: auto; display: block; margin: 0 auto 18px; }
+      .tile.wordmark img { width: min(100%, 310px); }
       .tile-title { font-size: 26px; font-weight: 700; margin: 0 0 8px; text-align: center; }
       .tile-copy { margin: 0; color: var(--muted); line-height: 1.45; text-align: center; }
       .back { display: inline-block; margin-bottom: 26px; color: var(--muted); text-decoration: none; font-weight: 700; }
+      .feedback { margin-top: 22px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 24px; box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05); }
+      .feedback h2 { margin: 0 0 8px; font-size: 24px; }
+      .feedback p { margin: 0 0 16px; color: var(--muted); line-height: 1.45; }
+      .feedback label { display: block; margin: 0 0 8px; font-weight: 700; }
+      .feedback textarea { width: 100%; min-height: 120px; resize: vertical; border-radius: 12px; border: 1px solid var(--line); padding: 14px; font: inherit; box-sizing: border-box; }
+      .feedback button { margin-top: 12px; min-height: 44px; border: 0; border-radius: 999px; background: var(--ink); color: #fff; padding: 0 18px; font-weight: 700; }
       @media (max-width: 780px) { .grid { grid-template-columns: 1fr; } }
     </style>
   </head>
@@ -49,8 +56,61 @@
             <p class="tile-copy">A more established, building-inspired direction with a stronger property-management signal.</p>
           </div>
         </a>
+
+        <a class="tile" href="logo-building.html">
+          <div>
+            <img src="assets/logo-building.png" alt="CLC Properties building mark concept">
+            <div class="tile-title">Building Mark</div>
+            <p class="tile-copy">The favorite roofline direction: CLC shaped into a clean building silhouette.</p>
+          </div>
+        </a>
+
+        <a class="tile" href="logo-doorway.html">
+          <div>
+            <img src="assets/logo-doorway.png" alt="CLC Properties doorway mark concept">
+            <div class="tile-title">Doorway Mark</div>
+            <p class="tile-copy">A simple entry-frame idea that feels like access, management, and support.</p>
+          </div>
+        </a>
+
+        <a class="tile wordmark" href="logo-wordmarks.html">
+          <div>
+            <img src="assets/logo-horizontal-wordmark.png" alt="CLC Properties horizontal wordmark concept">
+            <div class="tile-title">Horizontal Wordmark</div>
+            <p class="tile-copy">A practical header-style option for the website and portal branding.</p>
+          </div>
+        </a>
+
+        <a class="tile wordmark" href="logo-wordmarks.html">
+          <div>
+            <img src="assets/logo-quiet-luxury-wordmark.png" alt="CLC Properties quiet luxury wordmark concept">
+            <div class="tile-title">Quiet Wordmark</div>
+            <p class="tile-copy">A calmer, more premium wordmark lane with less icon emphasis.</p>
+          </div>
+        </a>
       </div>
+
+      <form class="feedback" name="logo-feedback" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="logo-feedback">
+        <p style="display:none">
+          <label>Do not fill this out: <input name="bot-field"></label>
+        </p>
+        <h2>Logo Feedback</h2>
+        <p>This sends to Netlify Forms on the live preview. Press Enter to send, or Shift+Enter for a new line.</p>
+        <label for="feedback-message">Comment</label>
+        <textarea id="feedback-message" name="message" placeholder="Which direction feels closest, and why?"></textarea>
+        <button type="submit">Send Comment</button>
+      </form>
     </main>
+    <script>
+      const feedback = document.querySelector('.feedback');
+      const message = document.getElementById('feedback-message');
+      message.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+          event.preventDefault();
+          feedback.requestSubmit();
+        }
+      });
+    </script>
   </body>
 </html>
-
