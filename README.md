@@ -17,7 +17,9 @@ This is the clean working repository for the BeautifulClicks public website.
 ## Pages
 
 - `index.html` - main tile board
-- `logo.html` - current mark, rationale, and comments
+- `logo.html` - logo concept gallery
+- `logo-current.html` - current mark detail page
+- `logo-architecture.html` - architectural mark detail page
 - `website.html` - front-facing website concepts
 - `deck.html` - live meeting talking points
 

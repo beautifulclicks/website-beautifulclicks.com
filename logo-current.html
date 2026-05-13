@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CLC Properties - Current Mark</title>
+    <style>
+      :root { color-scheme: light; --bg: #f5f2eb; --ink: #1f2328; --muted: #6b7280; --line: rgba(31, 35, 40, 0.1); }
+      html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+      main { max-width: 980px; margin: 0 auto; padding: 48px 24px 72px; }
+      h1 { margin: 0 0 10px; font-size: clamp(30px, 4vw, 54px); }
+      .sub { margin: 0 0 28px; color: var(--muted); font-size: 18px; line-height: 1.5; }
+      .hero { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 34px; box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05); }
+      .mark { display: grid; place-items: center; min-height: 300px; }
+      .mark img { width: min(58vw, 360px); height: auto; display: block; }
+      .sections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+      .panel h2 { margin: 0 0 10px; font-size: 20px; }
+      .panel p, .panel li { color: var(--muted); line-height: 1.5; }
+      .notes { margin-top: 18px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; }
+      .back { display: inline-block; margin-bottom: 24px; color: var(--muted); text-decoration: none; font-weight: 700; }
+      textarea { width: 100%; min-height: 120px; resize: vertical; border-radius: 14px; border: 1px solid var(--line); padding: 14px; font: inherit; background: #fff; box-sizing: border-box; }
+      button { border: 0; border-radius: 999px; background: var(--ink); color: #fff; min-height: 44px; padding: 0 16px; font-weight: 700; width: fit-content; }
+      .comment-list { display: grid; gap: 10px; margin-top: 10px; }
+      .comment { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; color: var(--ink); }
+      .small { color: var(--muted); font-size: 14px; }
+      @media (max-width: 860px) { .sections, .notes { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="logo.html">Back to logo concepts</a>
+      <h1>Current Mark</h1>
+      <p class="sub">A clean evolution of the existing mark, keeping the recognizable CLC structure.</p>
+
+      <section class="hero">
+        <div class="mark">
+          <img src="assets/logo-current.png" alt="CLC Properties current logo">
+        </div>
+
+        <div class="sections">
+          <div class="panel">
+            <h2>Where It Comes From</h2>
+            <p>This direction starts from the existing CLC cube/structure idea and treats it as something worth refining.</p>
+          </div>
+          <div class="panel">
+            <h2>Why It Works</h2>
+            <p>It is recognizable, compact, and already connected to property and construction.</p>
+          </div>
+          <div class="panel">
+            <h2>What To Improve</h2>
+            <p>Soften the harshness, improve the proportions, and make the typography feel more intentional.</p>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div class="panel">
+            <h2>Talking Point</h2>
+            <p>This is the lowest-risk path: preserve what CLC already has, but make it cleaner and more professional.</p>
+          </div>
+          <div class="panel">
+            <h2>Comments</h2>
+            <p class="small">Saved in this browser only for now.</p>
+            <textarea id="commentInput" placeholder="Type a note and press Enter..."></textarea>
+            <button id="addComment">Add Comment</button>
+            <div id="comments" class="comment-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      const input = document.getElementById('commentInput');
+      const button = document.getElementById('addComment');
+      const list = document.getElementById('comments');
+      const storageKey = 'clc-logo-current-comments';
+      function loadComments() { try { return JSON.parse(localStorage.getItem(storageKey) || '[]'); } catch { return []; } }
+      function saveComments(comments) { localStorage.setItem(storageKey, JSON.stringify(comments)); }
+      function render() {
+        list.innerHTML = '';
+        loadComments().forEach((comment) => {
+          const item = document.createElement('div');
+          item.className = 'comment';
+          item.textContent = comment;
+          list.appendChild(item);
+        });
+      }
+      function addComment() { const value = input.value.trim(); if (!value) return; const comments = loadComments(); comments.unshift(value); saveComments(comments.slice(0, 20)); input.value = ''; render(); }
+      button.addEventListener('click', addComment);
+      input.addEventListener('keydown', (event) => { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); addComment(); } });
+      render();
+    </script>
+  </body>
+</html>

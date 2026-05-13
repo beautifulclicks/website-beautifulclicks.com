@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CLC Properties — Direction 1: Quiet Luxury Property Management</title>
+  <style>
+    :root {
+      --ink: #23211e;
+      --muted: #6f6a62;
+      --paper: #f7f3ec;
+      --panel: #fffaf2;
+      --stone: #d8d0c3;
+      --taupe: #a99b8a;
+      --charcoal: #151515;
+      --brass: #b59762;
+      --olive: #707365;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      padding: 34px;
+    }
+
+    .slide {
+      width: min(1480px, 100%);
+      min-height: calc(100vh - 68px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 28px;
+    }
+
+    .mockup, .notes {
+      background: var(--panel);
+      border: 1px solid rgba(35,33,30,0.1);
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 28px 80px rgba(35, 33, 30, 0.12);
+    }
+
+    .browser-bar {
+      height: 52px;
+      background: #ede6dc;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 22px;
+      border-bottom: 1px solid rgba(35,33,30,0.08);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(35,33,30,0.25);
+    }
+
+    .url {
+      margin-left: 12px;
+      flex: 1;
+      height: 26px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.64);
+      color: rgba(35,33,30,0.45);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      padding-left: 18px;
+    }
+
+    .site {
+      background: var(--panel);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 670px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(18,18,16,0.78), rgba(18,18,16,0.42), rgba(18,18,16,0.08)),
+        url('../Assets/property photos/Finished project 2.png') center/cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 78% 12%, rgba(255,255,255,0.18), transparent 36%);
+      pointer-events: none;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 42px;
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 650;
+      font-size: 13px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,0.55);
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .login {
+      padding: 11px 16px;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 999px;
+      color: var(--white);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      align-content: end;
+      max-width: 720px;
+      padding: 0 42px 62px;
+      color: var(--white);
+    }
+
+    .eyebrow {
+      color: rgba(255,255,255,0.74);
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      font-size: clamp(48px, 5.4vw, 88px);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-copy {
+      max-width: 570px;
+      margin-top: 24px;
+      color: rgba(255,255,255,0.82);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-size: 12px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.45);
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn.primary {
+      background: var(--panel);
+      color: var(--ink);
+      border-color: var(--panel);
+    }
+
+    .quick-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: rgba(35,33,30,0.12);
+    }
+
+    .quick-card {
+      background: var(--panel);
+      padding: 30px 28px;
+      min-height: 166px;
+    }
+
+    .quick-card .num {
+      color: var(--brass);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .quick-card h3 {
+      margin: 0 0 12px;
+      font-family: Georgia, serif;
+      font-weight: 400;
+      font-size: 27px;
+      letter-spacing: -0.03em;
+    }
+
+    .quick-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .content-band {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      padding: 42px;
+      background: #fbf7ef;
+      border-top: 1px solid rgba(35,33,30,0.08);
+    }
+
+    .feature-image {
+      min-height: 260px;
+      border-radius: 24px;
+      background: url('../Assets/property photos/Finished proejct 1.png') center/cover no-repeat;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.28);
+    }
+
+    .feature-copy {
+      align-self: center;
+    }
+
+    .feature-copy .label {
+      color: var(--brass);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    .feature-copy h2 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: 42px;
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 400;
+    }
+
+    .feature-copy p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .notes {
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .kicker {
+      color: var(--brass);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .notes h2 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-weight: 400;
+      font-size: 50px;
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+    }
+
+    .positioning {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .info {
+      border: 1px solid rgba(35,33,30,0.1);
+      border-radius: 22px;
+      padding: 18px;
+      background: rgba(255,255,255,0.36);
+    }
+
+    .info strong {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .info span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .palette {
+      display: flex;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .swatch {
+      height: 38px;
+      flex: 1;
+      border-radius: 14px;
+      border: 1px solid rgba(35,33,30,0.11);
+    }
+
+    .s1 { background: #f7f3ec; }
+    .s2 { background: #23211e; }
+    .s3 { background: #b59762; }
+    .s4 { background: #a99b8a; }
+    .s5 { background: #707365; }
+
+    .talking-points {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.72;
+    }
+
+    .quote {
+      margin-top: auto;
+      border-left: 3px solid var(--brass);
+      padding: 4px 0 4px 18px;
+      font-family: Georgia, serif;
+      font-size: 24px;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    @media (max-width: 1100px) {
+      body { padding: 18px; }
+      .slide { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .quick-panel, .content-band, .info-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="slide">
+    <section class="mockup" aria-label="Website mockup">
+      <div class="browser-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url">clcproperties.ca / concept direction 01</div>
+      </div>
+
+      <div class="site">
+        <section class="hero">
+          <nav class="nav">
+            <div class="brand">
+              <div class="brand-mark">CLC</div>
+              <div>CLC Properties</div>
+            </div>
+            <div class="nav-links">
+              <span>Management</span>
+              <span>Custom Homes</span>
+              <span>Rentals</span>
+              <span>Contact</span>
+              <span class="login">Login</span>
+            </div>
+          </nav>
+
+          <div class="hero-content">
+            <div class="eyebrow">Boutique Property Management + Custom Homes</div>
+            <h1>Property care with a builder’s eye for quality.</h1>
+            <p class="hero-copy">CLC Properties supports owners, residents, and select custom home projects with a calm, professional approach rooted in care, detail, and long-term value.</p>
+            <div class="hero-actions">
+              <div class="btn primary">Resident / Owner Login</div>
+              <div class="btn">Explore Services</div>
+              <div class="btn">Start a Conversation</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="quick-panel">
+          <article class="quick-card">
+            <div class="num">01 / Owners</div>
+            <h3>Managed with clarity.</h3>
+            <p>Owner reporting, reliable communication, leasing support, and thoughtful care for every property.</p>
+          </article>
+          <article class="quick-card">
+            <div class="num">02 / Residents</div>
+            <h3>Simple resident access.</h3>
+            <p>A clean front door for maintenance, payments, questions, and everyday support.</p>
+          </article>
+          <article class="quick-card">
+            <div class="num">03 / Homes</div>
+            <h3>Built with intention.</h3>
+            <p>Selected custom home and project work presented with polish, restraint, and credibility.</p>
+          </article>
+        </section>
+
+        <section class="content-band">
+          <div class="feature-image"></div>
+          <div class="feature-copy">
+            <div class="label">Presentation idea</div>
+            <h2>A premium first impression without losing the practical portal flow.</h2>
+            <p>The homepage leads with trust and beauty, then immediately gives owners and residents a simple place to go. It feels high-end, but still behaves like a working property-management website.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <aside class="notes" aria-label="Deck notes">
+      <div class="kicker">Website Direction 01</div>
+      <h2>Quiet Luxury Property Management</h2>
+      <p class="positioning">A calm, premium homepage direction that positions CLC as a boutique property management company with custom-home capability. This is polished and aspirational, but not flashy or overly corporate.</p>
+
+      <div class="info-grid">
+        <div class="info">
+          <strong>Best for</strong>
+          <span>Safest client-facing direction; ideal for showing trust, maturity, and premium taste.</span>
+        </div>
+        <div class="info">
+          <strong>Photo use</strong>
+          <span>Use the finished home images as hero photography, with construction/project photos as supporting proof.</span>
+        </div>
+        <div class="info">
+          <strong>Experience</strong>
+          <span>Homepage leads with brand confidence, then gives owners and residents clear paths.</span>
+        </div>
+        <div class="info">
+          <strong>Login</strong>
+          <span>Resident / Owner Login appears in the top navigation and again as the primary hero action.</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="kicker">Palette</div>
+        <div class="palette">
+          <div class="swatch s1"></div>
+          <div class="swatch s2"></div>
+          <div class="swatch s3"></div>
+          <div class="swatch s4"></div>
+          <div class="swatch s5"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="kicker">Talking points</div>
+        <ul class="talking-points">
+          <li>Feels premium and modern without pretending to be a large corporate developer.</li>
+          <li>Balances property management first with custom homes as a second credibility pillar.</li>
+          <li>Uses CLC’s own finished project photography to make the concept feel real immediately.</li>
+          <li>Keeps the resident and owner login simple, visible, and professional.</li>
+        </ul>
+      </div>
+
+      <div class="quote">“This gives CLC a beautiful front door — calm, credible, and practical.”</div>
+    </aside>
+  </main>
+</body>
+</html>
