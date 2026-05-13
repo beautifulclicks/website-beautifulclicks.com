@@ -10,9 +10,16 @@ This is the clean working repository for the BeautifulClicks public website.
 
 ## Current State
 
-- Local scaffold ready
+- Local concept site ready
 - Connected to GitHub
 - Netlify site created and linked
+
+## Pages
+
+- `index.html` - main tile board
+- `logo.html` - current mark, rationale, and comments
+- `website.html` - front-facing website concepts
+- `deck.html` - live meeting talking points
 
 ## Netlify Site
 

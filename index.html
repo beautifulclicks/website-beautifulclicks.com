@@ -28,136 +28,107 @@
       }
 
       main {
-        width: min(100vw, 960px);
-        padding: 64px;
-        text-align: center;
+        width: min(100vw, 1080px);
+        padding: 64px 28px;
       }
 
       h1 {
         margin: 0 0 12px;
         font-size: clamp(32px, 5vw, 58px);
         letter-spacing: -0.02em;
+        text-align: center;
       }
 
-      p {
-        margin: 0;
+      .sub {
+        margin: 0 0 40px;
         color: var(--muted);
         font-size: 18px;
         line-height: 1.5;
+        text-align: center;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .tile {
+        min-height: 220px;
+        background: #fff;
+        border: 1px solid rgba(31, 35, 40, 0.08);
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+        color: var(--ink);
+        box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05);
+        transition: transform 160ms ease, box-shadow 160ms ease;
+        padding: 18px;
+      }
+
+      .tile:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 40px rgba(31, 35, 40, 0.08);
+      }
+
+      .tile-title {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0 0 8px;
+      }
+
+      .tile-copy {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .tile-wide {
+        grid-column: span 1;
+      }
+
+      .tile-img {
+        width: min(100%, 150px);
+        height: auto;
+        display: block;
+        margin: 0 auto 14px;
+      }
+
+      @media (max-width: 840px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
   <body>
     <main>
-      <div style="max-width: 1020px; margin: 0 auto;">
-        <h1>CLC Properties</h1>
-        <p style="margin-bottom: 40px;">Simple demo board for the first website conversation.</p>
+      <h1>CLC Properties</h1>
+      <p class="sub">Simple demo board for the first website conversation.</p>
 
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-          "
-        >
-          <a
-            href="#logo"
-            style="
-              min-height: 180px;
-              background: #ffffff;
-              border: 1px solid rgba(31, 35, 40, 0.08);
-              border-radius: 14px;
-              display: grid;
-              place-items: center;
-              text-decoration: none;
-              color: var(--ink);
-              box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05);
-            "
-          >
-            <div>
-              <div style="font-size: 34px; font-weight: 700; margin-bottom: 8px;">Logo</div>
-              <div style="color: var(--muted);">Current mark and clean direction</div>
-            </div>
-          </a>
+      <div class="grid">
+        <a class="tile tile-wide" href="logo.html">
+          <div>
+            <img class="tile-img" src="assets/logo-current.png" alt="CLC Properties logo">
+            <div class="tile-title">Logo</div>
+            <p class="tile-copy">Current mark, clean direction, and the thinking behind it.</p>
+          </div>
+        </a>
 
-          <a
-            href="#feedback"
-            style="
-              min-height: 180px;
-              background: #ffffff;
-              border: 1px solid rgba(31, 35, 40, 0.08);
-              border-radius: 14px;
-              display: grid;
-              place-items: center;
-              text-decoration: none;
-              color: var(--ink);
-              box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05);
-            "
-          >
-            <div>
-              <div style="font-size: 34px; font-weight: 700; margin-bottom: 8px;">Client Feedback</div>
-              <div style="color: var(--muted);">What he likes and what to soften</div>
-            </div>
-          </a>
+        <a class="tile tile-wide" href="website.html">
+          <div>
+            <div class="tile-title">Front-Facing Website</div>
+            <p class="tile-copy">Quick mockup ideas for the public site and feel of the brand.</p>
+          </div>
+        </a>
 
-          <a
-            href="#logo-concepts"
-            style="
-              min-height: 180px;
-              background: #ffffff;
-              border: 1px solid rgba(31, 35, 40, 0.08);
-              border-radius: 14px;
-              display: grid;
-              place-items: center;
-              text-decoration: none;
-              color: var(--ink);
-              box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05);
-            "
-          >
-            <div>
-              <div style="font-size: 34px; font-weight: 700; margin-bottom: 8px;">Logo Concepts</div>
-              <div style="color: var(--muted);">A few directions to compare</div>
-            </div>
-          </a>
-
-          <a
-            href="#website-concepts"
-            style="
-              min-height: 180px;
-              background: #ffffff;
-              border: 1px solid rgba(31, 35, 40, 0.08);
-              border-radius: 14px;
-              display: grid;
-              place-items: center;
-              text-decoration: none;
-              color: var(--ink);
-              box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05);
-            "
-          >
-            <div>
-              <div style="font-size: 34px; font-weight: 700; margin-bottom: 8px;">Website Concepts</div>
-              <div style="color: var(--muted);">Homepage and style direction</div>
-            </div>
-          </a>
-        </div>
-
-        <a
-          href="#deck"
-          style="
-            margin-top: 18px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 56px;
-            padding: 0 20px;
-            border-radius: 999px;
-            background: #1f2328;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-          "
-        >
-          Meeting Deck
+        <a class="tile tile-wide" href="deck.html">
+          <div>
+            <div class="tile-title">Meeting Deck</div>
+            <p class="tile-copy">Live talking points for the screen-share meeting.</p>
+          </div>
         </a>
       </div>
     </main>

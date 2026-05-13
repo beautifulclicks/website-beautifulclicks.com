@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CLC Properties - Logo</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f2eb;
+        --ink: #1f2328;
+        --muted: #6b7280;
+        --line: rgba(31, 35, 40, 0.1);
+      }
+      html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+      body { min-height: 100vh; }
+      main { max-width: 980px; margin: 0 auto; padding: 48px 24px 72px; }
+      h1 { margin: 0 0 10px; font-size: clamp(30px, 4vw, 54px); letter-spacing: -0.02em; }
+      .sub { margin: 0 0 28px; color: var(--muted); font-size: 18px; line-height: 1.5; }
+      .hero { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 34px; box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05); }
+      .mark { display: grid; place-items: center; min-height: 300px; }
+      .mark img { width: min(58vw, 360px); height: auto; display: block; }
+      .sections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+      .panel h2 { margin: 0 0 10px; font-size: 20px; }
+      .panel p, .panel li { color: var(--muted); line-height: 1.5; }
+      .notes { margin-top: 18px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; }
+      .comment-box { display: grid; gap: 10px; }
+      textarea { width: 100%; min-height: 120px; resize: vertical; border-radius: 14px; border: 1px solid var(--line); padding: 14px; font: inherit; background: #fff; }
+      button { border: 0; border-radius: 999px; background: var(--ink); color: #fff; min-height: 44px; padding: 0 16px; font-weight: 700; width: fit-content; }
+      .comment-list { display: grid; gap: 10px; margin-top: 10px; }
+      .comment { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; color: var(--ink); }
+      .small { color: var(--muted); font-size: 14px; }
+      @media (max-width: 860px) {
+        .sections, .notes { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Logo</h1>
+      <p class="sub">Current mark, where it comes from, and why it works.</p>
+
+      <section class="hero">
+        <div class="mark">
+          <img src="assets/logo-current.png" alt="CLC Properties current logo">
+        </div>
+
+        <div class="sections">
+          <div class="panel">
+            <h2>Current Mark</h2>
+            <p>The current logo is strong, geometric, and simple to recognize. It has a clear property/structure feel.</p>
+          </div>
+          <div class="panel">
+            <h2>Why It Works</h2>
+            <p>It feels confident and minimal, which is good for a property company. The shape is distinctive enough to carry the brand.</p>
+          </div>
+          <div class="panel">
+            <h2>What To Soften</h2>
+            <p>The next version should feel a little calmer and more polished. Less sharp, more refined, same core identity.</p>
+          </div>
+        </div>
+
+        <div class="notes">
+          <div class="panel">
+            <h2>Discussion</h2>
+            <p>We can use this page to capture why each direction exists and whether it feels closer to the brand.</p>
+            <ul>
+              <li>Keep the CLC identity</li>
+              <li>Soften the presentation</li>
+              <li>Stay modern and local</li>
+            </ul>
+          </div>
+
+          <div class="panel comment-box">
+            <h2>Comments</h2>
+            <p class="small">This saves in this browser only for now.</p>
+            <textarea id="commentInput" placeholder="Type a note and press Enter..."></textarea>
+            <button id="addComment">Add Comment</button>
+            <div id="comments" class="comment-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const input = document.getElementById('commentInput');
+      const button = document.getElementById('addComment');
+      const list = document.getElementById('comments');
+      const storageKey = 'clc-logo-comments';
+
+      function loadComments() {
+        try {
+          return JSON.parse(localStorage.getItem(storageKey) || '[]');
+        } catch {
+          return [];
+        }
+      }
+
+      function saveComments(comments) {
+        localStorage.setItem(storageKey, JSON.stringify(comments));
+      }
+
+      function render() {
+        const comments = loadComments();
+        list.innerHTML = comments
+          .map((comment) => `<div class="comment">${comment}</div>`)
+          .join('');
+      }
+
+      function addComment() {
+        const value = input.value.trim();
+        if (!value) return;
+        const comments = loadComments();
+        comments.unshift(value);
+        saveComments(comments.slice(0, 20));
+        input.value = '';
+        render();
+      }
+
+      button.addEventListener('click', addComment);
+      input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+          event.preventDefault();
+          addComment();
+        }
+      });
+
+      render();
+    </script>
+  </body>
+</html>
+

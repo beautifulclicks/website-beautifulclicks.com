@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CLC Properties - Website Concepts</title>
+    <style>
+      :root { color-scheme: light; --bg: #f5f2eb; --ink: #1f2328; --muted: #6b7280; --line: rgba(31, 35, 40, 0.1); }
+      html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+      main { max-width: 1100px; margin: 0 auto; padding: 48px 24px 72px; }
+      h1 { margin: 0 0 10px; font-size: clamp(30px, 4vw, 54px); letter-spacing: -0.02em; }
+      .sub { margin: 0 0 28px; color: var(--muted); font-size: 18px; line-height: 1.5; }
+      .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 18px; min-height: 260px; padding: 20px; box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05); }
+      .hero { height: 150px; border-radius: 14px; background: linear-gradient(135deg, #e5e1d7, #f9f8f4); border: 1px solid var(--line); margin-bottom: 16px; }
+      .panel h2 { margin: 0 0 8px; font-size: 22px; }
+      .panel p { margin: 0; color: var(--muted); line-height: 1.5; }
+      @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Front-Facing Website</h1>
+      <p class="sub">A few simple mockup directions to help Lorenzo react to style and feel.</p>
+      <div class="grid">
+        <section class="panel">
+          <div class="hero"></div>
+          <h2>Direction 1</h2>
+          <p>Soft, calm, and property-management first. Clear entry points and little noise.</p>
+        </section>
+        <section class="panel">
+          <div class="hero"></div>
+          <h2>Direction 2</h2>
+          <p>More polished and premium, but still practical. Good for a first impression.</p>
+        </section>
+        <section class="panel">
+          <div class="hero"></div>
+          <h2>Direction 3</h2>
+          <p>Simple, modern, and direct. Focuses on trust, residents, and fast handoff to portal tools.</p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
+
