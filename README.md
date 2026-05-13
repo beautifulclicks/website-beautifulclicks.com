@@ -12,10 +12,11 @@ This is the clean working repository for the BeautifulClicks public website.
 
 - Local scaffold ready
 - Connected to GitHub
-- Netlify preview created
+- Netlify site created and linked
 
-## Netlify Test Deploy
+## Netlify Site
 
-- Site: `preview-clc-properties`
-- Preview URL: https://6a04abde815bad1fa3e39a25--preview-clc-properties.netlify.app
-- Deploy log: https://app.netlify.com/projects/preview-clc-properties/deploys/6a04abde815bad1fa3e39a25
+- Site: `website-beautifulclicks-com-167`
+- Production URL: https://website-beautifulclicks-com-167.netlify.app
+- Deploy URL: https://6a04ae349ca3ef2d2a4c7422--website-beautifulclicks-com-167.netlify.app
+- Admin: https://app.netlify.com/projects/website-beautifulclicks-com-167
