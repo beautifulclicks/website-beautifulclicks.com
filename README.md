@@ -1,12 +1,12 @@
-# website-beautifulclicks.com
+# CLC Properties Preview
 
-This is the clean working repository for the BeautifulClicks public website.
+This is the temporary CLC Properties concept site for meeting previews and early design feedback.
 
 ## Purpose
 
-- Hold the site code for the public web presence
+- Hold the CLC Properties preview pages and concept boards
 - Keep the demo and working files separate from the planning notes
-- Stay simple enough to deploy to Netlify later
+- Stay simple enough to deploy quickly to Netlify
 
 ## Current State
 
@@ -29,7 +29,6 @@ This is the clean working repository for the BeautifulClicks public website.
 
 ## Netlify Site
 
-- Site: `website-beautifulclicks-com-167`
-- Production URL: https://website-beautifulclicks-com-167.netlify.app
-- Deploy URL: https://6a04ae349ca3ef2d2a4c7422--website-beautifulclicks-com-167.netlify.app
-- Admin: https://app.netlify.com/projects/website-beautifulclicks-com-167
+- Site: `clc-properties-preview`
+- Production URL: https://clc-properties-preview.netlify.app
+- Admin: https://app.netlify.com/projects/clc-properties-preview
