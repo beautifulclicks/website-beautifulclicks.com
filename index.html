@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CLC Properties</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f2eb;
+        --ink: #1f2328;
+        --muted: #6b7280;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      main {
+        width: min(100vw, 960px);
+        padding: 64px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(32px, 5vw, 58px);
+        letter-spacing: -0.02em;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div style="max-width: 1020px; margin: 0 auto;">
+        <h1>CLC Properties</h1>
+        <p style="margin-bottom: 40px;">Simple demo board for the first website conversation.</p>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+          "
+        >
+          <a
+            href="#logo"
+            style="
+              min-height: 180px;
+              background: #ffffff;
+              border: 1px solid rgba(31, 35, 40, 0.08);
+              border-radius: 14px;
+              display: grid;
+              place-items: center;
+              text-decoration: none;
+              color: var(--ink);
+              box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05);
+            "
+          >
+            <div>
+              <div style="font-size: 34px; font-weight: 700; margin-bottom: 8px;">Logo</div>
+              <div style="color: var(--muted);">Current mark and clean direction</div>
+            </div>
+          </a>
+
+          <a
+            href="#feedback"
+            style="
+              min-height: 180px;
+              background: #ffffff;
+              border: 1px solid rgba(31, 35, 40, 0.08);
+              border-radius: 14px;
+              display: grid;
+              place-items: center;
+              text-decoration: none;
+              color: var(--ink);
+              box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05);
+            "
+          >
+            <div>
+              <div style="font-size: 34px; font-weight: 700; margin-bottom: 8px;">Client Feedback</div>
+              <div style="color: var(--muted);">What he likes and what to soften</div>
+            </div>
+          </a>
+
+          <a
+            href="#logo-concepts"
+            style="
+              min-height: 180px;
+              background: #ffffff;
+              border: 1px solid rgba(31, 35, 40, 0.08);
+              border-radius: 14px;
+              display: grid;
+              place-items: center;
+              text-decoration: none;
+              color: var(--ink);
+              box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05);
+            "
+          >
+            <div>
+              <div style="font-size: 34px; font-weight: 700; margin-bottom: 8px;">Logo Concepts</div>
+              <div style="color: var(--muted);">A few directions to compare</div>
+            </div>
+          </a>
+
+          <a
+            href="#website-concepts"
+            style="
+              min-height: 180px;
+              background: #ffffff;
+              border: 1px solid rgba(31, 35, 40, 0.08);
+              border-radius: 14px;
+              display: grid;
+              place-items: center;
+              text-decoration: none;
+              color: var(--ink);
+              box-shadow: 0 10px 30px rgba(31, 35, 40, 0.05);
+            "
+          >
+            <div>
+              <div style="font-size: 34px; font-weight: 700; margin-bottom: 8px;">Website Concepts</div>
+              <div style="color: var(--muted);">Homepage and style direction</div>
+            </div>
+          </a>
+        </div>
+
+        <a
+          href="#deck"
+          style="
+            margin-top: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 56px;
+            padding: 0 20px;
+            border-radius: 999px;
+            background: #1f2328;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+          "
+        >
+          Meeting Deck
+        </a>
+      </div>
+    </main>
+  </body>
+</html>
